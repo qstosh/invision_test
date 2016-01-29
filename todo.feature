@@ -32,11 +32,11 @@ Scenario: I can add new 'To do item'
   Given I am a registered user
     And I am logged in
    When I click on 'Add new item' button
-  Then the button expands into 'Item edit mode'
+   Then the button expands into 'Item edit mode'
     And I fill 'Title' input
     And I fill 'Description' input
     And I click 'Add' button
-   Then I can see the item at the bottom of the 'To do list'
+   Then I can see the item at the bottom of the 'To Do column'
 
 Scenario: I can log out
     Given I am a registered user
@@ -46,4 +46,32 @@ Scenario: I can log out
       And I click on 'Log out' button
      Then I am redirected to 'Log in / Create new account page'
 
-Scenario: I can create a new project
+Scenario: I can add new 'Project'
+    Given I am a registered user
+      And I am logged in
+     When I hover 'Project menu icon'
+      And I see a menu with all the projects
+     When I click on the 'New project'
+     Then I am redirected to new, empty 'Project page'
+      And the 'Project name' input is focused displaying default name 'New project' appended with index number
+      And I can rename it to my liking
+
+Scenario: I drag 'To do item' from 'To Do column' to 'In progress column'
+    Given I am a registered user
+      And I am logged in
+     When I hover over any 'To do item' on 'To Do column' the item is highlighted
+      And I can drag it
+     When I drag it over 'In progress column'
+     Then the whole column is highlighted
+      And I can drop it on 'In progress column'
+      And the item appears at the bottom of the column
+
+Scenario: I drag 'To do item' from 'In progress column' to 'Done column'
+    Given I am a registered user
+      And I am logged in
+     When I hover over any 'To do item' on 'In progress column' the item is highlighted
+      And I can drag it
+     When I drag it over 'Done column'
+     Then the whole column is highlighted
+      And I can drop it on 'Done column'
+      And the item appears at the bottom of the column
