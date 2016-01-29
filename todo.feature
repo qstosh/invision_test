@@ -40,8 +40,8 @@ Scenario: I can add new 'To do item'
 
 Scenario: I can log out
     Given I am a registered user
-      And I am logged in
      When I hover over 'User icon'
+      And I am logged in
      Then I see a dropdown menu
       And I click on 'Log out' button
      Then I am redirected to 'Log in / Create new account page'
