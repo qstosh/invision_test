@@ -30,13 +30,13 @@ Scenario: I can log in
 
 Scenario: I can add new 'To do item'
   Given I am a registered user
-  And I am logged in
-  When I click on 'Add new item' button
+    And I am logged in
+   When I click on 'Add new item' button
   Then the button expands into 'Item edit mode'
-  And I fill 'Title' input
-  And I fill 'Description' input
-  And I click 'Add' button
-  Then I can see the item at the bottom of the 'To do list'
+    And I fill 'Title' input
+    And I fill 'Description' input
+    And I click 'Add' button
+   Then I can see the item at the bottom of the 'To do list'
 
 Scenario: I can log out
     Given I am a registered user
